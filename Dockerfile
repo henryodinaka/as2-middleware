@@ -6,7 +6,7 @@ WORKDIR /workspace
 COPY pom.xml /workspace
 
 COPY src /workspace/src
-RUN mvn -B clean package --file pom.xml -DskipTests
+RUN mvn -B clean package --file pom.xml
 
 FROM openjdk:14-slim
 
