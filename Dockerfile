@@ -15,7 +15,8 @@ RUN mkdir -p /workspace
 WORKDIR /workspace
 
 COPY target /workspace/target
-COPY /workspace/target/*as2-middleware.jar as2-middleware.jar
+RUN ls /workspace/target
+COPY /workspace/target/as2-middleware.jar as2-middleware.jar
 
 VOLUME [ "/tmp" ]
 
