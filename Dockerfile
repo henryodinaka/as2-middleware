@@ -1,5 +1,5 @@
 #FROM maven:3.6.3-jdk-8-slim AS build
-#
+
 #LABEL maintainer="adewolemayowa@gmail.com"
 #RUN mkdir -p /workspace
 #WORKDIR /workspace
