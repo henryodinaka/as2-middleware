@@ -12,7 +12,7 @@ FROM openjdk:14-slim
 
 COPY --from=build /workspace/target/*as2-middleware.jar as2-middleware.jar
 
-VOLUME [ "/tmp" ]
+VOLUME [ "/data" ]
 
 EXPOSE 9090
 

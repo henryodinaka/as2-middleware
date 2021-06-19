@@ -1,0 +1,1 @@
+docker run --name open-as2-middleware --mount 'type=volume,src=,dst=<CONTAINER-PATH>,volume-driver=local' 752265468063.dkr.ecr.us-east-1.amazonaws.com/open-as2-middleware

@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  busybox:
+    image: busybox
+    command: aws ecr get-login --region us-east-1 --no-include-email
+  as2-middleware:
+    image: 752265468063.dkr.ecr.us-east-1.amazonaws.com/open-as2-middleware
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - type: bind
+        source: /home/ubuntu/OpenAS2Servers/sender/data
+        target: /tmp
+    depends_on:
+      - busybox
+    
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ubuntu/OpenAS2Servers/sender/data
+
