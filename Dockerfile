@@ -1,6 +1,6 @@
 FROM openjdk:14-slim
 LABEL maintainer="adewolemayowa@gmail.com"
-RUN  apt install awscli
+RUN  apt-get install awscli
 #RUN mkdir -p /workspace
 #WORKDIR /workspace
 #COPY target /workspace/target
