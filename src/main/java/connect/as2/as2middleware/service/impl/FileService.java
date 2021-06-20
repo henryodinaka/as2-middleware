@@ -126,15 +126,15 @@ public class FileService {
     public List<File> loadAllMDN() {
         try {
             String mdnPath = mdnBasePath + "/" + LocalDate.now();
-            log.info("Mdn path {}", mdnPath);
+//            log.info("Mdn path {}", mdnPath);
             Path root = Paths.get(mdnPath);
             if (Files.exists(root)) {
                 var fileList = Files.walk(root, 1)
                         .filter(path -> !path.equals(root)).map(Path::toFile)
                         .collect(Collectors.toList());
-                for (File file : fileList) {
-                    log.info("MDN File Received {}", file.getName());
-                }
+//              todo  for (File file : fileList) {
+//                    log.info("MDN File Received {}", file.getName());
+//                }
                 return fileList;
             }
 
@@ -146,15 +146,15 @@ public class FileService {
 
     public List<File> loadInbox() {
         try {
-            log.info("inbox path {}", inboxPath);
+//            log.info("inbox path {}", inboxPath);
             Path root = Paths.get(inboxPath);
             if (Files.exists(root)) {
                 var fileList = Files.walk(root, 1)
                         .filter(path -> !path.equals(root)).map(Path::toFile)
                         .collect(Collectors.toList());
-                for (File file : fileList) {
-                    log.info("Inbox File Received {}", file.getName());
-                }
+//        todo        for (File file : fileList) {
+//                    log.info("Inbox File Received {}", file.getName());
+//                }
                 return fileList;
             }
             return Collections.emptyList();
@@ -167,7 +167,7 @@ public class FileService {
     public List<File> loadAllSent() {
 
             String sentPath = sentBasePath + "/" + LocalDate.now().getYear();
-            log.info("Sent path {}", sentPath);
+//            log.info("Sent path {}", sentPath);
            return listRecursive(sentPath,new ArrayList<>());
     }
 
