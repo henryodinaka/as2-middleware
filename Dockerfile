@@ -8,4 +8,4 @@ LABEL maintainer="adewolemayowa@gmail.com"
 COPY /target/as2-middleware.jar as2-middleware.jar
 VOLUME [ "/data" ]
 EXPOSE 9090
-CMD ["java","-jar","as2-middleware.jar"]
+CMD ["java","-Dspring.profiles.active=staging","-jar","as2-middleware.jar"]

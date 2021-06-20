@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -33,8 +34,13 @@ public class FileService {
     @Value("${path.storageBaseDir}")
     private String baseDir;
 
+    @Value("${path.reverse.test}")
+    private String reverseTestPath;
+
     @Value("${path.mdn}")
     private String mdnBasePath;
+    @Value("${path.sent}")
+    private String sentBasePath;
     @Value("${path.inbox}")
     private String inboxPath;
 
@@ -57,6 +63,18 @@ public class FileService {
             Path root = Paths.get(pathToAnyPartner);
             if (!Files.exists(root)) {
                 init();
+            }
+            Files.copy(file.getInputStream(), root.resolve(Objects.requireNonNull(file.getOriginalFilename())));
+        } catch (Exception e) {
+            throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
+        }
+    }
+
+    public void saveReverse(MultipartFile file) {
+        try {
+            Path root = Paths.get(reverseTestPath);
+            if (!Files.exists(root)) {
+                Files.createDirectories(Paths.get(reverseTestPath));
             }
             Files.copy(file.getInputStream(), root.resolve(Objects.requireNonNull(file.getOriginalFilename())));
         } catch (Exception e) {
@@ -108,7 +126,7 @@ public class FileService {
     public List<File> loadAllMDN() {
         try {
             String mdnPath = mdnBasePath + "/" + LocalDate.now();
-            log.info("path {}", mdnPath);
+            log.info("Mdn path {}", mdnPath);
             Path root = Paths.get(mdnPath);
             if (Files.exists(root)) {
                 var fileList = Files.walk(root, 1)
@@ -145,7 +163,15 @@ public class FileService {
         }
     }
 
-    public void listf(String directoryName, List<File> files) {
+
+    public List<File> loadAllSent() {
+
+            String sentPath = sentBasePath + "/" + LocalDate.now().getYear();
+            log.info("Sent path {}", sentPath);
+           return listRecursive(sentPath,new ArrayList<>());
+    }
+
+    public List<File> listRecursive(String directoryName, List<File> files) {
         File directory = new File(directoryName);
 
         // Get all files from a directory.
@@ -155,8 +181,9 @@ public class FileService {
                 if (file.isFile()) {
                     files.add(file);
                 } else if (file.isDirectory()) {
-                    listf(file.getAbsolutePath(), files);
+                    listRecursive(file.getAbsolutePath(), files);
                 }
             }
+        return files;
     }
 }

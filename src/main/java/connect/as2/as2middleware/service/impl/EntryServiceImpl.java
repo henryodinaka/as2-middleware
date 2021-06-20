@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.util.List;
+
 /**
  * Created by Odinaka Onah on 01 Jun, 2021.
  */
@@ -37,5 +40,24 @@ public class EntryServiceImpl implements EntryService {
             throw new APIException(new Response("16", "File to be uploaded cannot be null", null));
         fileService.save(partnerName,file);
         return new Response(200, "00", "File Dropped successfully", null);
+    }
+    public Response sendReverse(String partnerName,MultipartFile file) {
+
+        if (file == null)
+            throw new APIException(new Response("16", "File to be uploaded cannot be null", null));
+        fileService.saveReverse(file);
+        return new Response(200, "00", "File Dropped successfully", null);
+    }
+
+    public List<File> loadAllMDN() {
+        return fileService.loadAllMDN();
+    }
+
+    public List<File> loadAllSent() {
+        return fileService.loadAllSent();
+    }
+
+    public List<File> loadInbox() {
+        return fileService.loadInbox();
     }
 }
