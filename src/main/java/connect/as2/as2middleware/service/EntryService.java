@@ -14,7 +14,8 @@ public interface EntryService {
     Response sendToAnyPartner(MultipartFile multipartFile);
     Response sendToOnePartner(String partnerName,MultipartFile multipartFile);
     Response sendReverse(String partnerName,MultipartFile multipartFile);
-    List<File> loadAllMDN();
+    List<File> loadAllMDNOut();
+    List<File> loadAllMDNIn();
     List<File> loadAllSent();
     List<File> loadInbox();
 }

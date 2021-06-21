@@ -37,8 +37,10 @@ public class FileService {
     @Value("${path.reverse.test}")
     private String reverseTestPath;
 
-    @Value("${path.mdn}")
-    private String mdnBasePath;
+    @Value("${path.mdn.out}")
+    private String mdnOutBasePath;
+    @Value("${path.mdn.in}")
+    private String mdnInBasePath;
     @Value("${path.sent}")
     private String sentBasePath;
     @Value("${path.inbox}")
@@ -123,9 +125,12 @@ public class FileService {
                 .toFile());
     }
 
-    public List<File> loadAllMDN() {
+    public List<File> loadAllMDN(boolean in) {
         try {
-            String mdnPath = mdnBasePath + "/" + LocalDate.now();
+            String mdnPath = "";
+            if (in)
+                   mdnPath = mdnInBasePath + "/" + LocalDate.now();
+            else mdnPath = mdnOutBasePath + "/" + LocalDate.now();
 //            log.info("Mdn path {}", mdnPath);
             Path root = Paths.get(mdnPath);
             if (Files.exists(root)) {

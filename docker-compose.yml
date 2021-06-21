@@ -1,20 +1,22 @@
 version: '3.9'
 
 services:
-  busybox:
-    image: busybox
-    command: aws ecr get-login --region us-east-1 --no-include-email
+
   as2-middleware:
     image: 752265468063.dkr.ecr.us-east-1.amazonaws.com/open-as2-middleware
     restart: always
+    #command: [bash, -c, "aws configure && ws ecr get-login --region us-east-1 --no-include-email"]
+    environment:
+      - SPRING_PROFILE=staging
     ports:
       - "9090:9090"
     volumes:
       - type: bind
         source: /home/ubuntu/OpenAS2Servers/sender/data
-        target: /tmp
-    depends_on:
-      - busybox
+        target: /OpenAS2Servers/sender/data
+      - type: bind
+        source: /home/ubuntu/OpenAS2Servers/middleware-logs
+        target: /OpenAS2Servers/middleware-logs
     
 volumes:
   data:

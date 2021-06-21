@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.util.List;
-
 @Component
 @Slf4j
 public class Scheduler {
@@ -22,8 +19,12 @@ public class Scheduler {
     }
 
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
-    public void loadMDN() {
-        var files = fileService.loadAllMDN();
+    public void loadMDNOut() {
+        var files = fileService.loadAllMDN(false);
+    }
+    @Scheduled(cron = "0 0/1 * 1/1 * ?")
+    public void loadMDNIn() {
+        var files = fileService.loadAllMDN(true);
     }
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void loadInbox() {

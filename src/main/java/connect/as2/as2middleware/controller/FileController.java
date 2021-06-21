@@ -40,9 +40,15 @@ public class FileController {
         return ResponseEntity.status(200).body(files);
     }
 
-    @GetMapping("/mdn" )
-    public ResponseEntity<Object> loadMDN() {
-        var files = this.entryService.loadAllMDN();
+    @GetMapping("/mdn/out" )
+    public ResponseEntity<Object> loadMDNOut() {
+        var files = this.entryService.loadAllMDNOut();
+        return ResponseEntity.status(200).body(files);
+    }
+
+    @GetMapping("/mdn/in" )
+    public ResponseEntity<Object> loadMDNIn() {
+        var files = this.entryService.loadAllMDNIn();
         return ResponseEntity.status(200).body(files);
     }
 
