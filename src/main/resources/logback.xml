@@ -16,9 +16,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-                <file>${app.log}/account.log</file>
+                <file>OpenAS2Servers/middleware-logs/openAs2.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                        <fileNamePattern>${app.log}/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                        <fileNamePattern>OpenAS2Servers/middleware-logs/openAs2.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>50MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -31,7 +31,7 @@
     </appender>
 
 
-    <logger name="com.unionbankng" level="TRACE" additivity="false">
+    <logger name="connect.as2.as2middleware" level="TRACE" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="console"/>
     </logger>
