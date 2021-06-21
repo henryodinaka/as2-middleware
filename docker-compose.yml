@@ -15,6 +15,9 @@ services:
         source: /home/ubuntu/OpenAS2Servers/sender/data
         target: /OpenAS2Servers/sender/data
       - type: bind
+        source: /home/ubuntu/OpenAS2Servers/receiver/data
+        target: /OpenAS2Servers/receiver/data
+      - type: bind
         source: /home/ubuntu/OpenAS2Servers/middleware-logs
         target: /OpenAS2Servers/middleware-logs
     
