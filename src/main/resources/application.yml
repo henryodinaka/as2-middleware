@@ -1,5 +1,8 @@
+
 server:
     port: 9091
+    servlet:
+        context-path: /middleware
 spring:
     profiles:
         active: ${SPRING_PROFILE}
