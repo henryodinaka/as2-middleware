@@ -1,0 +1,10 @@
+server:
+    port: 9091
+spring:
+    profiles:
+        active: ${SPRING_PROFILE}
+    servlet:
+        multipart:
+            location: /data
+            max-file-size: 50000KB
+            max-request-size: 50000KB

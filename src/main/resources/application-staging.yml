@@ -1,0 +1,26 @@
+app:
+    log: OpenAS2Servers/middleware-logs
+as2:
+    partners:
+        my-company:
+            name: Sisunet
+            id: SISUNET_AS2_PROD
+        seeburger:
+            name: Seeburger
+            id: MSAT_AS2_PROD
+partners:
+    name: Any,Seeburger
+path:
+    inbox: ${path.storageBaseDir}/inbox/${as2.partners.seeburger.id}-${as2.partners.my-company.id}
+    mdn:
+        in: ${path.storageBaseDir}/mdn/${as2.partners.my-company.id}-${as2.partners.seeburger.id}
+        out: ${path.storageBaseDir}/mdn/${as2.partners.seeburger.id}-${as2.partners.my-company.id}
+    msgheaders: ${path.storageBaseDir}/msgheaders/${as2.partners.my-company.id}-${as2.partners.seeburger.id}
+    reverse:
+        test: OpenAS2Servers/seeburger/data/toSisunet
+    sent: ${path.storageBaseDir}/sent/${as2.partners.my-company.id}-${as2.partners.seeburger.id}
+    storageBaseDir: OpenAS2Servers/sisunet/data
+    to:
+        anyPartner: ${path.storageBaseDir}/toAny
+server:
+    port: 9090
