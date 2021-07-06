@@ -10,6 +10,7 @@ as2:
             id: MSAT_AS2_PROD
 partners:
     name: Any,Seeburger
+    id: MSAT_AS2_PROD
 path:
     inbox: ${path.storageBaseDir}/inbox/${as2.partners.seeburger.id}-${as2.partners.my-company.id}
     mdn:
