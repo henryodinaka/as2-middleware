@@ -1,0 +1,101 @@
+2021-07-06 08:07:41 INFO [restartedMain] c.a.a.As2MiddlewareApplication
+                            [StartupInfoLogger.java:55] .org.springframework.boot.StartupInfoLogger logStarting - Starting As2MiddlewareApplication using Java 11.0.8 on odinaka with PID 19296 (C:\projects\conectar\as2-middleware\target\classes started by odinaka in C:\projects\conectar\as2-middleware)
+2021-07-06 08:07:41 DEBUG [restartedMain] c.a.a.As2MiddlewareApplication
+                            [StartupInfoLogger.java:56] .org.springframework.boot.StartupInfoLogger logStarting - Running with Spring Boot v2.5.0, Spring v5.3.7
+2021-07-06 08:07:41 INFO [restartedMain] c.a.a.As2MiddlewareApplication
+                            [SpringApplication.java:667] .org.springframework.boot.SpringApplication logStartupProfileInfo - The following profiles are active: dev
+2021-07-06 08:07:41 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor
+                            [DeferredLog.java:255] .org.springframework.boot.logging.DeferredLog logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-06 08:07:41 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor
+                            [DeferredLog.java:255] .org.springframework.boot.logging.DeferredLog logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-06 08:07:41 WARN [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder
+                            [CompositeLog.java:127] .org.springframework.core.log.CompositeLog warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-07-06 08:07:42 INFO [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker
+                            [PostProcessorRegistrationDelegate.java:376] .org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@54c58d9f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-06 08:07:42 INFO [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker
+                            [PostProcessorRegistrationDelegate.java:376] .org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-06 08:07:42 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer
+                            [TomcatWebServer.java:108] .org.springframework.boot.web.embedded.tomcat.TomcatWebServer initialize - Tomcat initialized with port(s): 9091 (http)
+2021-07-06 08:07:42 INFO [restartedMain] o.a.c.h.Http11NioProtocol
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Initializing ProtocolHandler ["http-nio-9091"]
+2021-07-06 08:07:42 INFO [restartedMain] o.a.c.c.StandardService
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Starting service [Tomcat]
+2021-07-06 08:07:42 INFO [restartedMain] o.a.c.c.StandardEngine
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-06 08:07:42 INFO [restartedMain] o.a.c.c.C.[.[.[/middleware]
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Initializing Spring embedded WebApplicationContext
+2021-07-06 08:07:42 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext
+                            [ServletWebServerApplicationContext.java:290] .org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1304 ms
+2021-07-06 08:07:42 INFO [restartedMain] c.a.a.s.i.FileService
+                            [FileService.java:55] .connect.as2.as2middleware.service.impl.FileService init - created folder C:/projects/conectar/as2/sisunet/data/toAny
+2021-07-06 08:07:42 INFO [restartedMain] c.a.a.s.i.FileService
+                            [FileService.java:55] .connect.as2.as2middleware.service.impl.FileService init - created folder C:/projects/conectar/as2/sisunet/data/toSeeburger
+2021-07-06 08:07:42 INFO [restartedMain] o.s.b.a.e.w.EndpointLinksResolver
+                            [EndpointLinksResolver.java:58] .org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver <init> - Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-07-06 08:07:42 INFO [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration
+                            [UserDetailsServiceAutoConfiguration.java:86] .org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration getOrDeducePassword - 
+
+Using generated security password: 6eadfe81-4f09-49dc-a1e3-f750c2b2e5bf
+
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/websocket/**'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/docs*'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/api-docs'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/api-docs.yaml'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/v3/api-docs'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/v3/api-docs.yaml'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/v2/api-docs'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/v2/api-docs.yaml'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/configuration/ui'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/swagger-resources/**'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/configuration/security'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/swagger-*'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/swagger-ui.html'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/swagger-ui.html*'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure Ant [pattern='/webjars/**'] with []
+2021-07-06 08:07:42 INFO [restartedMain] o.s.s.w.DefaultSecurityFilterChain
+                            [DefaultSecurityFilterChain.java:51] .org.springframework.security.web.DefaultSecurityFilterChain <init> - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fddc2ce, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c6b17c0, org.springframework.security.web.header.HeaderWriterFilter@4721742f, org.springframework.security.web.authentication.logout.LogoutFilter@3d8dc8dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d806920, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a9585ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c963c32, org.springframework.security.web.session.SessionManagementFilter@c6ef0db, org.springframework.security.web.access.ExceptionTranslationFilter@61bd3493, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a633d6a]
+2021-07-06 08:07:42 INFO [restartedMain] s.d.s.w.PropertySourcedRequestMappingHandlerMapping
+                            [PropertySourcedRequestMappingHandlerMapping.java:69] .springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-06 08:07:43 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer
+                            [OptionalLiveReloadServer.java:58] .org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer startServer - LiveReload server is running on port 35729
+2021-07-06 08:07:43 INFO [restartedMain] o.a.c.h.Http11NioProtocol
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Starting ProtocolHandler ["http-nio-9091"]
+2021-07-06 08:07:43 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer
+                            [TomcatWebServer.java:220] .org.springframework.boot.web.embedded.tomcat.TomcatWebServer start - Tomcat started on port(s): 9091 (http) with context path '/middleware'
+2021-07-06 08:07:43 INFO [restartedMain] s.d.s.w.p.DocumentationPluginsBootstrapper
+                            [DocumentationPluginsBootstrapper.java:160] .springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper start - Context refreshed
+2021-07-06 08:07:43 INFO [restartedMain] s.d.s.w.p.DocumentationPluginsBootstrapper
+                            [DocumentationPluginsBootstrapper.java:163] .springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper start - Found 1 custom documentation plugin(s)
+2021-07-06 08:07:43 INFO [restartedMain] s.d.s.w.s.ApiListingReferenceScanner
+                            [ApiListingReferenceScanner.java:41] .springfox.documentation.spring.web.scanners.ApiListingReferenceScanner scan - Scanning for api listing references
+2021-07-06 08:07:43 INFO [restartedMain] s.d.s.w.r.o.CachingOperationNameGenerator
+                            [CachingOperationNameGenerator.java:40] .springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator startingWith - Generating unique operation named: handleUsingGET_1
+2021-07-06 08:07:43 INFO [restartedMain] c.a.a.As2MiddlewareApplication
+                            [StartupInfoLogger.java:61] .org.springframework.boot.StartupInfoLogger logStarted - Started As2MiddlewareApplication in 2.751 seconds (JVM running for 3.846)
+2021-07-06 08:07:43 INFO [restartedMain] o.s.b.a.ApplicationAvailabilityBean
+                            [ApplicationAvailabilityBean.java:75] .org.springframework.boot.availability.ApplicationAvailabilityBean logStateChange - Application availability state LivenessState changed to CORRECT
+2021-07-06 08:07:43 INFO [restartedMain] o.s.b.a.ApplicationAvailabilityBean
+                            [ApplicationAvailabilityBean.java:75] .org.springframework.boot.availability.ApplicationAvailabilityBean logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-07-06 08:07:44 INFO [RMI TCP Connection(2)-172.31.192.1] o.a.c.c.C.[.[.[/middleware]
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-06 08:07:44 INFO [RMI TCP Connection(2)-172.31.192.1] o.s.w.s.DispatcherServlet
+                            [FrameworkServlet.java:525] .org.springframework.web.servlet.FrameworkServlet initServletBean - Initializing Servlet 'dispatcherServlet'
+2021-07-06 08:07:44 INFO [RMI TCP Connection(2)-172.31.192.1] o.s.w.s.DispatcherServlet
+                            [FrameworkServlet.java:547] .org.springframework.web.servlet.FrameworkServlet initServletBean - Completed initialization in 1 ms
+2021-07-06 08:21:20 WARN [http-nio-9091-exec-9] o.a.c.c.Request
+                            [DirectJDKLog.java:173] .org.apache.juli.logging.DirectJDKLog log - Creating the temporary upload location [C:\Users\odina\AppData\Local\Temp\tomcat.9091.6028920952804298005\work\Tomcat\localhost\middleware\data] as it is required by the servlet [dispatcherServlet]

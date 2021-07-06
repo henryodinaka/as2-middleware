@@ -11,3 +11,7 @@ spring:
             location: /data
             max-file-size: 50000KB
             max-request-size: 50000KB
+    mvc:
+        hiddenmethod:
+            filter:
+                enabled: true
