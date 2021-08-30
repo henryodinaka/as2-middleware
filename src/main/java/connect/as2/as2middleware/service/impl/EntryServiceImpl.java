@@ -66,19 +66,19 @@ public class EntryServiceImpl implements EntryService {
         return new Response(200, "00", "File Dropped successfully", null);
     }
 
-    public List<FileResponseObject> loadAllMDNOut() {
+    public List<File> loadAllMDNOut() {
         return fileService.loadAllMDN(false);
     }
 
-    public List<FileResponseObject> loadAllMDNIn() {
+    public List<File> loadAllMDNIn() {
         return fileService.loadAllMDN(true);
     }
 
-    public List<FileResponseObject> loadAllSent() {
+    public List<File> loadAllSent() {
         return fileService.loadAllSent();
     }
 
-    public List<FileResponseObject> loadInbox() {
+    public List<File> loadInbox() {
         return fileService.loadInbox();
     }
 }

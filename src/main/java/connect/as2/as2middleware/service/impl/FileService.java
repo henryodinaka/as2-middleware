@@ -126,7 +126,7 @@ public class FileService {
                 .toFile());
     }
 
-    public List<FileResponseObject> loadAllMDN(boolean in) {
+    public List<File> loadAllMDN(boolean in) {
         try {
             String mdnPath = "";
             if (in)
@@ -142,27 +142,28 @@ public class FileService {
 //                    log.info("MDN File Received {}", file.getName());
 //                }
                 List<FileResponseObject> files = new ArrayList<>();
-                for (File file : fileList){
-                    var name = file.getName();
-                    log.info("File name {}",name);
-                    var split = name.split("-");
-                    if (split.length <1) continue;
-
-                    String yyyy = split[1];
-                    String MM = split[2];
-                    String dTime = split[3];
-                    log.info("DateTime log {}",dTime);
-                    String dd = dTime.substring(0,2);
-                    String HH = dTime.substring(2,4);
-                    String mm = dTime.substring(4,6);
-                    String ss = dTime.substring(6,8);
-
-                    String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
-                    log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
-                    log.info("Final date and time {}",dateTime);
-                    files.add(new FileResponseObject(dateTime,file));
-                }
-                return files;
+//                for (File file : fileList){
+//                    var name = file.getName();
+//                    log.info("File name {}",name);
+//                    var split = name.split("-");
+//                    if (split.length <1) continue;
+//
+//                    String yyyy = split[1];
+//                    String MM = split[2];
+//                    String dTime = split[3];
+//                    log.info("DateTime log {}",dTime);
+//                    String dd = dTime.substring(0,2);
+//                    String HH = dTime.substring(2,4);
+//                    String mm = dTime.substring(4,6);
+//                    String ss = dTime.substring(6,8);
+//
+//                    String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
+//                    log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
+//                    log.info("Final date and time {}",dateTime);
+//                    files.add(new FileResponseObject(dateTime,file));
+//                }
+//                return files;
+                return fileList;
             }
 
             return Collections.emptyList();
@@ -171,7 +172,7 @@ public class FileService {
         }
     }
 
-    public List<FileResponseObject> loadInbox() {
+    public List<File> loadInbox() {
         try {
 //            log.info("inbox path {}", inboxPath);
             Path root = Paths.get(inboxPath);
@@ -182,28 +183,29 @@ public class FileService {
 //        todo        for (File file : fileList) {
 //                    log.info("Inbox File Received {}", file.getName());
 //                }
-                List<FileResponseObject> files = new ArrayList<>();
-                for (File file : fileList){
-                    var name = file.getName();
-                    log.info("File name {}",name);
-                    var split = name.split("-");
-                    if (split.length <1) continue;
-
-                    String yyyy = split[1];
-                    String MM = split[2];
-                    String dTime = split[3];
-                    log.info("DateTime log {}",dTime);
-                    String dd = dTime.substring(0,2);
-                    String HH = dTime.substring(2,4);
-                    String mm = dTime.substring(4,6);
-                    String ss = dTime.substring(6,8);
-
-                    String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
-                    log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
-                    log.info("Final date and time {}",dateTime);
-                    files.add(new FileResponseObject(dateTime,file));
-                }
-                return files;
+//                List<FileResponseObject> files = new ArrayList<>();
+//                for (File file : fileList){
+//                    var name = file.getName();
+//                    log.info("File name {}",name);
+//                    var split = name.split("-");
+//                    if (split.length <1) continue;
+//
+//                    String yyyy = split[1];
+//                    String MM = split[2];
+//                    String dTime = split[3];
+//                    log.info("DateTime log {}",dTime);
+//                    String dd = dTime.substring(0,2);
+//                    String HH = dTime.substring(2,4);
+//                    String mm = dTime.substring(4,6);
+//                    String ss = dTime.substring(6,8);
+//
+//                    String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
+//                    log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
+//                    log.info("Final date and time {}",dateTime);
+//                    files.add(new FileResponseObject(dateTime,file));
+//                }
+//                return files;
+                return fileList;
             }
             return Collections.emptyList();
         } catch (IOException e) {
@@ -212,34 +214,35 @@ public class FileService {
     }
 
 
-    public List<FileResponseObject> loadAllSent() {
+    public List<File> loadAllSent() {
 
             String sentPath = sentBasePath + "/" + LocalDate.now().getYear();
 //            log.info("Sent path {}", sentPath);
 
         var fileList = listRecursive(sentPath, new ArrayList<>());
-        List<FileResponseObject> files = new ArrayList<>();
-        for (File file : fileList){
-            var name = file.getName();
-            log.info("File name {}",name);
-            var split = name.split("-");
-            if (split.length <1) continue;
-
-            String yyyy = split[1];
-            String MM = split[2];
-            String dTime = split[3];
-            log.info("DateTime log {}",dTime);
-            String dd = dTime.substring(0,2);
-            String HH = dTime.substring(2,4);
-            String mm = dTime.substring(4,6);
-            String ss = dTime.substring(6,8);
-
-            String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
-            log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
-            log.info("Final date and time {}",dateTime);
-            files.add(new FileResponseObject(dateTime,file));
-        }
-        return files;
+//        List<FileResponseObject> files = new ArrayList<>();
+//        for (File file : fileList){
+//            var name = file.getName();
+//            log.info("File name {}",name);
+//            var split = name.split("-");
+//            if (split.length <1) continue;
+//
+//            String yyyy = split[1];
+//            String MM = split[2];
+//            String dTime = split[3];
+//            log.info("DateTime log {}",dTime);
+//            String dd = dTime.substring(0,2);
+//            String HH = dTime.substring(2,4);
+//            String mm = dTime.substring(4,6);
+//            String ss = dTime.substring(6,8);
+//
+//            String dateTime = yyyy+"-"+MM+"-"+dd+" "+HH+":"+mm+":"+ss;
+//            log.info("Name splits yyyy {} MM {} dd {} HH {} mm {} ss {}",yyyy,MM,dd,HH,mm,ss);
+//            log.info("Final date and time {}",dateTime);
+//            files.add(new FileResponseObject(dateTime,file));
+//        }
+//        return files;
+        return fileList;
     }
 
     public List<File> listRecursive(String directoryName, List<File> files) {
