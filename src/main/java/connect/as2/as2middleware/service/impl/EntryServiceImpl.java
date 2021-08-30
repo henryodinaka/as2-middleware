@@ -1,6 +1,7 @@
 package connect.as2.as2middleware.service.impl;
 
 import connect.as2.as2middleware.config.APIException;
+import connect.as2.as2middleware.dto.FileResponseObject;
 import connect.as2.as2middleware.service.EntryService;
 import connect.as2.as2middleware.utils.Response;
 import lombok.extern.slf4j.Slf4j;
@@ -65,19 +66,19 @@ public class EntryServiceImpl implements EntryService {
         return new Response(200, "00", "File Dropped successfully", null);
     }
 
-    public List<File> loadAllMDNOut() {
+    public List<FileResponseObject> loadAllMDNOut() {
         return fileService.loadAllMDN(false);
     }
 
-    public List<File> loadAllMDNIn() {
+    public List<FileResponseObject> loadAllMDNIn() {
         return fileService.loadAllMDN(true);
     }
 
-    public List<File> loadAllSent() {
+    public List<FileResponseObject> loadAllSent() {
         return fileService.loadAllSent();
     }
 
-    public List<File> loadInbox() {
+    public List<FileResponseObject> loadInbox() {
         return fileService.loadInbox();
     }
 }
