@@ -2,6 +2,7 @@ package connect.as2.as2middleware.service.impl;
 
 import connect.as2.as2middleware.config.APIException;
 import connect.as2.as2middleware.dto.FileResponseObject;
+import connect.as2.as2middleware.exception.MiddlewareException;
 import connect.as2.as2middleware.service.EntryService;
 import connect.as2.as2middleware.utils.Response;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.DateTime;
 
 /**
  * Created by Odinaka Onah on 01 Jun, 2021.
@@ -74,11 +82,54 @@ public class EntryServiceImpl implements EntryService {
         return fileService.loadAllMDN(true);
     }
 
-    public List<File> loadAllSent() {
-        return fileService.loadAllSent();
+    public List<FileResponseObject> loadAllSent(String fileDate, String toDate) throws MiddlewareException {
+
+        Date fro = convertDate(fileDate);
+        Date to;
+        if (toDate == null || toDate.isEmpty())
+            to = new Date();
+        else if (Objects.equals(fileDate, toDate)) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(fro);
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            to = c.getTime();
+        } else {
+            to = convertDate(toDate);
+            Calendar c = Calendar.getInstance();
+            c.setTime(to);
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            to = c.getTime();
+        }
+        return fileService.loadAllSent(fro, to);
     }
 
-    public List<File> loadInbox() {
-        return fileService.loadInbox();
+    public List<FileResponseObject> loadInbox(String fileDate, String toDate) throws MiddlewareException {
+
+        Date fro = convertDate(fileDate);
+        Date to;
+        if (toDate == null || toDate.isEmpty())
+            to = new Date();
+        else if (Objects.equals(fileDate, toDate)) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(fro);
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            to = c.getTime();
+        } else {
+            to = convertDate(toDate);
+            Calendar c = Calendar.getInstance();
+            c.setTime(to);
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            to = c.getTime();
+        }
+        return fileService.loadInbox(fro, to);
+    }
+
+    public Date convertDate(String fileDate) throws MiddlewareException {
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd").parse(fileDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            throw new MiddlewareException(400, e.getMessage());
+        }
     }
 }

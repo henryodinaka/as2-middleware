@@ -1,6 +1,7 @@
 package connect.as2.as2middleware.service;
 
 import connect.as2.as2middleware.dto.FileResponseObject;
+import connect.as2.as2middleware.exception.MiddlewareException;
 import connect.as2.as2middleware.utils.Response;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +17,6 @@ public interface EntryService {
     Response sendReverse(String partnerName,MultipartFile multipartFile);
     List<File> loadAllMDNOut();
     List<File> loadAllMDNIn();
-    List<File> loadAllSent();
-    List<File> loadInbox();
+    List<FileResponseObject> loadAllSent(String froDate,String toDate) throws MiddlewareException;
+    List<FileResponseObject> loadInbox(String froDate,String toDate) throws MiddlewareException;
 }

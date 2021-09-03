@@ -1,5 +1,6 @@
 package connect.as2.as2middleware.controller;
 
+import connect.as2.as2middleware.exception.MiddlewareException;
 import connect.as2.as2middleware.service.EntryService;
 import connect.as2.as2middleware.utils.Response;
 import io.swagger.annotations.ApiOperation;
@@ -42,8 +43,8 @@ public class FileController {
 
     @ApiOperation(value = "Retrieve all files received from the clients")
     @GetMapping("/inbox" )
-    public ResponseEntity<Object> loadInbox() {
-        var files = this.entryService.loadInbox();
+    public ResponseEntity<Object> loadInbox(@RequestParam String from,@RequestParam(required = false) String to) throws MiddlewareException {
+        var files = this.entryService.loadInbox(from,to);
         return ResponseEntity.status(200).body(files);
     }
 
@@ -63,8 +64,8 @@ public class FileController {
 
     @ApiOperation(value = "Retrieve all file sent by our company to clients")
     @GetMapping("/sent" )
-    public ResponseEntity<Object> loadSent() {
-        var files = this.entryService.loadAllSent();
+    public ResponseEntity<Object> loadSent(@RequestParam String from,@RequestParam(required = false) String to) throws MiddlewareException {
+        var files = this.entryService.loadAllSent(from,to);
         return ResponseEntity.status(200).body(files);
     }
 

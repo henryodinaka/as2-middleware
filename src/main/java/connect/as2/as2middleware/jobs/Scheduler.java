@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 @Slf4j
 public class Scheduler {
@@ -28,7 +30,8 @@ public class Scheduler {
     }
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void loadInbox() {
-        var files = fileService.loadInbox();
+
+        var files = fileService.loadInbox(new Date(),new Date());
     }
 
 }
